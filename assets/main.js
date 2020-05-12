@@ -4,12 +4,14 @@ let rollSumTotal = document.querySelector("#roll-sum")
 let dieRolls = []
 
 rollButton.addEventListener("click", function(){
-    console.log("click")
     
     let numberOfRolls = rollNumberInput.value
-    console.log(numberOfRolls)
+    console.log("number of rolls is" + " " + numberOfRolls)
 
-    if (Math.random() * 6 < 1) {
+    let index = 1
+
+    while (numberOfRolls >= index ) {
+        if (Math.random() * 6 < 1) {
         console.log("6")
     } else if (Math.random() * 5 < 1) {
         console.log("5")
@@ -21,6 +23,12 @@ rollButton.addEventListener("click", function(){
         console.log("2")
     } else {
         console.log("1")
-    } 
+    }  
+     index += 1
+    }
+
+  console.log(dieRolls)
+
+    
 
 })
