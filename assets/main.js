@@ -4,6 +4,7 @@ let rollSumTotal = document.querySelector("#roll-sum")
 let dieRolls = []
 let rollResults = document.querySelector("#roll-results")
 let rollShow = document.querySelector("#roll-show")
+let reset = document.querySelector("#reset-button")
 
 rollButton.addEventListener("click", function(){
     
@@ -39,18 +40,19 @@ rollButton.addEventListener("click", function(){
     console.log("dieRolls length is" + " " + dieRolls.length)
 
     let i = 0
+    let baseRollValue = 0
     while (dieRolls.length > i) {
         
         rollResults.innerHTML += ("<li>" + " " + dieRolls[i] + " " + "</li>")
-        let baseRollValue = 0
-        let newRollValue = baseRollValue += dieRolls[1]
-        let newestRollValue = (newRollValue += dieRolls[i])
-        rollSumTotal.innerHTML = (newRollValue)
-        console.log("newRollValue is " + newRollValue)
-        console.log(newestRollValue)
+        console.log("dieRolls[i] is now" + dieRolls[i])
+        
+        
+        
+        baseRollValue += Number(dieRolls[i])
         i += 1
         console.log("i = " +i)
-        baseRollValue += dieRolls[i]
+        console.log("baseRollValue is " + baseRollValue)
+        rollSumTotal.innerHTML = (baseRollValue)
     }
 
 
@@ -62,4 +64,10 @@ rollShow.addEventListener("click", function() {
       } else {
         rollResults.style.display = "inline-block";
       }
+})
+
+reset.addEventListener("click", function() {
+    rollResults.innerHTML=("")
+    rollNumberInput.value=("")
+    rollSumTotal.innerHTML=("0")
 })
